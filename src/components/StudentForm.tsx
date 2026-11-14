@@ -41,6 +41,11 @@ export default function StudentForm({
       return;
     }
 
+    if (cleanCourse.length > 60) {
+      setError("Course name must not exceed 60 characters.");
+      return;
+    }
+
     if (existingEmails.some(
       (item) => item.toLowerCase() === cleanEmail
     )) {
