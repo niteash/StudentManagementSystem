@@ -33,6 +33,7 @@ export default function StudentTable({
                 <th>Student ID</th>
                 <th>Course</th>
                 <th>Year</th>
+                <th>Registered</th>
                 <th>Attendance</th>
                 <th>Actions</th>
               </tr>
@@ -59,6 +60,7 @@ export default function StudentTable({
                   <td>{student.id}</td>
                   <td>{student.course}</td>
                   <td>Year {student.year}</td>
+                  <td>{student.createdAt || "N/A"}</td>
                   <td>
                     <span className="status">
                       {student.attendance}
