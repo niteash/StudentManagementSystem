@@ -10,7 +10,7 @@ import {
   saveStudents,
 } from "./lib/storage";
 
-import type { Student, StudentInput } from "./types";
+import type { Attendance, Student, StudentInput } from "./types";
 import "./styles.css";
 
 export default function App() {
@@ -72,7 +72,18 @@ export default function App() {
 
     setMessage("Student deleted successfully!");
   }
+ 
+  function updateAttendance(id: string, attendance: Attendance) {
+    const updated = students.map((student) =>
+      student.id === id
+        ? { ...student, attendance }
+        : student
+    );
 
+    updateStudents(updated);
+    setMessage("Attendance updated successfully!");
+  }
+ 
   const totalStudents = students.length;
 
   const totalCourses = new Set(
@@ -83,6 +94,24 @@ export default function App() {
     (s) => s.year === 4
   ).length;
 
+  const presentCount = students.filter(
+  (s) => s.attendance === "Present"
+).length;
+
+const absentCount = students.filter(
+  (s) => s.attendance === "Absent"
+).length;
+
+const notMarkedCount = students.filter(
+  (s) => s.attendance === "Not marked"
+).length;
+
+const markedCount = presentCount + absentCount;
+
+const attendanceRate = markedCount === 0
+  ? 0
+  : Math.round((presentCount / markedCount) * 100);
+  
   return (
     <div className="app-layout">
       <aside className="sidebar">
@@ -159,12 +188,36 @@ export default function App() {
               <p>Final Year Students</p>
               <h2>{finalYear}</h2>
             </div>
+            <div className="stat-card">
+              <span>✓</span>
+              <p>Present</p>
+              <h2>{presentCount}</h2>
+            </div>
+
+            <div className="stat-card">
+              <span>✕</span>
+              <p>Absent</p>
+              <h2>{absentCount}</h2>
+            </div>
+
+            <div className="stat-card">
+              <span>○</span>
+              <p>Not Marked</p>
+              <h2>{notMarkedCount}</h2>
+            </div>
+
+            <div className="stat-card">
+              <span>%</span>
+              <p>Attendance Rate</p>
+              <h2>{attendanceRate}%</h2>
+            </div>
           </div>
 
           <StudentTable
             students={students}
             onDelete={deleteStudent}
             onEdit={setEditingStudent}
+            onAttendanceChange={updateAttendance}
           />
         </div>
       </main>

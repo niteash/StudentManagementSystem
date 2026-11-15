@@ -1,17 +1,19 @@
 
 import { useMemo, useState } from "react";
-import type { Student } from "../types";
+import type { Attendance, Student } from "../types";
 
 interface Props {
   students: Student[];
   onDelete: (id: string) => void;
   onEdit: (student: Student) => void;
+   onAttendanceChange: (id: string, attendance: Attendance) => void;
 }
 
 export default function StudentTable({
   students,
   onDelete,
   onEdit,
+  onAttendanceChange,
 }: Props) {
   const [search, setSearch] = useState("");
   const [courseFilter, setCourseFilter] = useState("All");
@@ -185,9 +187,21 @@ export default function StudentTable({
                   <td>Year {student.year}</td>
 
                   <td>
-                    <span className="status">
-                      {student.attendance}
-                    </span>
+                    <select
+                      className={`attendance-select attendance-${student.attendance.toLowerCase().replace(" ", "-")}`}
+                      value={student.attendance}
+                      onChange={(e) =>
+                        onAttendanceChange(
+                          student.id,
+                          e.target.value as Attendance
+                        )
+                      }
+                      aria-label={`Update attendance for ${student.name}`}
+                    >
+                      <option value="Not marked">Not marked</option>
+                      <option value="Present">Present</option>
+                      <option value="Absent">Absent</option>
+                    </select>
                   </td>
 
                   <td>
