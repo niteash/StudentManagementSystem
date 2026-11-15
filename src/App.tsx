@@ -111,7 +111,22 @@ const markedCount = presentCount + absentCount;
 const attendanceRate = markedCount === 0
   ? 0
   : Math.round((presentCount / markedCount) * 100);
-  
+const courseDistribution = Object.entries(
+    students.reduce<Record<string, number>>((acc, student) => {
+      acc[student.course] = (acc[student.course] || 0) + 1;
+      return acc;
+    }, {})
+  ).sort((a, b) => b[1] - a[1]);
+
+const yearDistribution = [1, 2, 3, 4].map((year) => ({
+    year,
+    count: students.filter((student) => student.year === year).length,
+  }));
+
+  const maxCourseCount = Math.max(
+    1,
+    ...courseDistribution.map(([, count]) => count)
+  );
   return (
     <div className="app-layout">
       <aside className="sidebar">
@@ -171,6 +186,7 @@ const attendanceRate = markedCount === 0
           )}
 
           <div className="stats-grid">
+
             <div className="stat-card">
               <span>👥</span>
               <p>Total Students</p>
@@ -212,7 +228,73 @@ const attendanceRate = markedCount === 0
               <h2>{attendanceRate}%</h2>
             </div>
           </div>
+          <section className="analytics-grid">
+            <div className="analytics-card">
+              <div className="analytics-heading">
+                <div>
+                  <h2>Course Distribution</h2>
+                  <p>Students enrolled in each course</p>
+                </div>
+                <span>📚</span>
+              </div>
 
+              {courseDistribution.length === 0 ? (
+                <p className="analytics-empty">No course data available yet.</p>
+              ) : (
+                <div className="analytics-list">
+                  {courseDistribution.map(([course, count]) => (
+                    <div className="analytics-item" key={course}>
+                      <div className="analytics-label">
+                        <span>{course}</span>
+                        <strong>{count}</strong>
+                      </div>
+                      <div className="progress-track">
+                        <div
+                          className="progress-fill course-fill"
+                          style={{
+                            width: `${(count / maxCourseCount) * 100}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="analytics-card">
+              <div className="analytics-heading">
+                <div>
+                  <h2>Year-wise Distribution</h2>
+                  <p>Students grouped by academic year</p>
+                </div>
+                <span>🎓</span>
+              </div>
+
+              <div className="analytics-list">
+                {yearDistribution.map(({ year, count }) => (
+                  <div className="analytics-item" key={year}>
+                    <div className="analytics-label">
+                      <span>Year {year}</span>
+                      <strong>{count}</strong>
+                    </div>
+                    <div className="progress-track">
+                      <div
+                        className="progress-fill year-fill"
+                        style={{
+                          width: `${
+                            totalStudents === 0
+                              ? 0
+                              : (count / totalStudents) * 100
+                          }%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
           <StudentTable
             students={students}
             onDelete={deleteStudent}

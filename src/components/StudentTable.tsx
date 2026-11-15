@@ -1,12 +1,15 @@
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Attendance, Student } from "../types";
 
 interface Props {
   students: Student[];
   onDelete: (id: string) => void;
   onEdit: (student: Student) => void;
-   onAttendanceChange: (id: string, attendance: Attendance) => void;
+  onAttendanceChange: (
+    id: string,
+    attendance: Attendance
+  ) => void;
 }
 
 export default function StudentTable({
@@ -18,15 +21,24 @@ export default function StudentTable({
   const [search, setSearch] = useState("");
   const [courseFilter, setCourseFilter] = useState("All");
   const [yearFilter, setYearFilter] = useState("All");
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
 
+  // Generate a unique, normalized list of courses.
   const courses = useMemo(
-    () => [...new Set(students.map((student) => student.course))].sort(),
+    () =>
+      [
+        ...new Set(
+          students
+            .map((student) => student.course.trim().toUpperCase())
+            .filter(Boolean)
+        ),
+      ].sort(),
     [students]
   );
 
+  // Search, filter and sort student records.
   const filteredStudents = useMemo(() => {
     const query = search.trim().toLowerCase();
 
@@ -39,7 +51,7 @@ export default function StudentTable({
 
         const matchesCourse =
           courseFilter === "All" ||
-          student.course === courseFilter;
+          student.course.trim().toUpperCase() === courseFilter;
 
         const matchesYear =
           yearFilter === "All" ||
@@ -48,18 +60,36 @@ export default function StudentTable({
         return matchesSearch && matchesCourse && matchesYear;
       })
       .sort((a, b) => {
-        const comparison = a.name.localeCompare(b.name);
+        const comparison = a.name.localeCompare(
+          b.name,
+          undefined,
+          { sensitivity: "base" }
+        );
+
         return sortOrder === "asc" ? comparison : -comparison;
       });
-  }, [students, search, courseFilter, yearFilter, sortOrder]);
+  }, [
+    students,
+    search,
+    courseFilter,
+    yearFilter,
+    sortOrder,
+  ]);
 
+  // Calculate pagination.
   const totalPages = Math.max(
     1,
     Math.ceil(filteredStudents.length / pageSize)
   );
 
-  const safePage = Math.min(currentPage, totalPages);
+  // Keep the current page within the available range.
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
 
+  const safePage = Math.min(currentPage, totalPages);
   const startIndex = (safePage - 1) * pageSize;
 
   const paginatedStudents = filteredStudents.slice(
@@ -67,6 +97,7 @@ export default function StudentTable({
     startIndex + pageSize
   );
 
+  // Reset pagination whenever a search or filter changes.
   function resetPage(action: () => void) {
     action();
     setCurrentPage(1);
@@ -85,6 +116,7 @@ export default function StudentTable({
         </span>
       </div>
 
+      {/* Search, filters and sorting */}
       <div className="student-toolbar">
         <input
           type="search"
@@ -106,6 +138,7 @@ export default function StudentTable({
           aria-label="Filter by course"
         >
           <option value="All">All Courses</option>
+
           {courses.map((course) => (
             <option key={course} value={course}>
               {course}
@@ -122,6 +155,7 @@ export default function StudentTable({
           aria-label="Filter by academic year"
         >
           <option value="All">All Years</option>
+
           {[1, 2, 3, 4].map((year) => (
             <option key={year} value={String(year)}>
               Year {year}
@@ -133,7 +167,9 @@ export default function StudentTable({
           className="filter-select"
           value={sortOrder}
           onChange={(e) =>
-            resetPage(() => setSortOrder(e.target.value))
+            resetPage(() =>
+              setSortOrder(e.target.value as "asc" | "desc")
+            )
           }
           aria-label="Sort students by name"
         >
@@ -142,6 +178,7 @@ export default function StudentTable({
         </select>
       </div>
 
+      {/* Student records */}
       {paginatedStudents.length === 0 ? (
         <div className="empty-state">
           <h3>No students found</h3>
@@ -162,82 +199,101 @@ export default function StudentTable({
             </thead>
 
             <tbody>
-              {paginatedStudents.map((student) => (
-                <tr key={student.id}>
-                  <td>
-                    <div className="student-info">
-                      <div className="avatar">
-                        {student.name
-                          .split(" ")
-                          .slice(0, 2)
-                          .map((part) => part[0])
-                          .join("")
-                          .toUpperCase()}
+              {paginatedStudents.map((student) => {
+                const initials =
+                  student.name
+                    .trim()
+                    .split(/\s+/)
+                    .filter(Boolean)
+                    .slice(0, 2)
+                    .map((part) => part[0])
+                    .join("")
+                    .toUpperCase() || "?";
+
+                return (
+                  <tr key={student.id}>
+                    <td>
+                      <div className="student-info">
+                        <div className="avatar">
+                          {initials}
+                        </div>
+
+                        <div>
+                          <strong>{student.name}</strong>
+                          <small>{student.email}</small>
+                        </div>
                       </div>
+                    </td>
 
-                      <div>
-                        <strong>{student.name}</strong>
-                        <small>{student.email}</small>
+                    <td>{student.id}</td>
+                    <td>{student.course}</td>
+                    <td>Year {student.year}</td>
+
+                    <td>
+                      <select
+                        className={`attendance-select attendance-${student.attendance
+                          .toLowerCase()
+                          .replace(" ", "-")}`}
+                        value={student.attendance}
+                        onChange={(e) =>
+                          onAttendanceChange(
+                            student.id,
+                            e.target.value as Attendance
+                          )
+                        }
+                        aria-label={`Update attendance for ${student.name}`}
+                      >
+                        <option value="Not marked">
+                          Not marked
+                        </option>
+                        <option value="Present">
+                          Present
+                        </option>
+                        <option value="Absent">
+                          Absent
+                        </option>
+                      </select>
+                    </td>
+
+                    <td>
+                      <div className="action-buttons">
+                        <button
+                          type="button"
+                          className="btn-edit"
+                          onClick={() => onEdit(student)}
+                          aria-label={`Edit ${student.name}`}
+                        >
+                          Edit
+                        </button>
+
+                        <button
+                          type="button"
+                          className="btn-delete"
+                          onClick={() => onDelete(student.id)}
+                          aria-label={`Delete ${student.name}`}
+                        >
+                          Delete
+                        </button>
                       </div>
-                    </div>
-                  </td>
-
-                  <td>{student.id}</td>
-                  <td>{student.course}</td>
-                  <td>Year {student.year}</td>
-
-                  <td>
-                    <select
-                      className={`attendance-select attendance-${student.attendance.toLowerCase().replace(" ", "-")}`}
-                      value={student.attendance}
-                      onChange={(e) =>
-                        onAttendanceChange(
-                          student.id,
-                          e.target.value as Attendance
-                        )
-                      }
-                      aria-label={`Update attendance for ${student.name}`}
-                    >
-                      <option value="Not marked">Not marked</option>
-                      <option value="Present">Present</option>
-                      <option value="Absent">Absent</option>
-                    </select>
-                  </td>
-
-                  <td>
-                    <div className="action-buttons">
-                      <button
-                        type="button"
-                        className="btn-edit"
-                        onClick={() => onEdit(student)}
-                        aria-label={`Edit ${student.name}`}
-                      >
-                        Edit
-                      </button>
-
-                      <button
-                        type="button"
-                        className="btn-delete"
-                        onClick={() => onDelete(student.id)}
-                        aria-label={`Delete ${student.name}`}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
       )}
 
+      {/* Pagination */}
       <div className="pagination">
         <div className="pagination-info">
           Showing{" "}
           {filteredStudents.length === 0 ? 0 : startIndex + 1}
           {" "}to{" "}
-          {Math.min(startIndex + pageSize, filteredStudents.length)}
+          {Math.min(
+            startIndex + pageSize,
+            filteredStudents.length
+          )}
           {" "}of {filteredStudents.length} students
         </div>
 
