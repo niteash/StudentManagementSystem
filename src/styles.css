@@ -403,3 +403,39 @@ td {
     grid-template-columns: 1fr;
   }
 }
+
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-edit {
+  background: #edf0ff;
+  color: #5366e8;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-edit:hover {
+  background: #dfe4ff;
+}
+
+.btn-delete:hover {
+  background: #ffe0e0;
+}
+
+.action-buttons button {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
