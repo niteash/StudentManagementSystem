@@ -122,3 +122,16 @@ Developed as part of the SEC101 MCA Group Assignment.
 
 **Institution:** University of Delhi
 
+## Application Screenshots
+
+### Dashboard
+![CampusFlow Dashboard](docs/screenshots/Dashboard.png)
+
+### Student Editing
+![Student Editing](docs/screenshots/Student%20Edit.png)
+
+### Search and Filtering
+![Search and Filtering](docs/screenshots/Search-Filtering.png)
+
+### Attendance Management
+![Attendance Management](docs/screenshots/Attendance.png)
