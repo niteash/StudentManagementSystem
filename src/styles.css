@@ -439,3 +439,106 @@ td {
   }
 }
 
+.student-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(130px, 1fr));
+  gap: 12px;
+  padding: 0 25px 22px;
+}
+
+.search-input,
+.filter-select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #dfe4ee;
+  background: white;
+  border-radius: 9px;
+  padding: 11px 12px;
+  color: #25314a;
+  font-size: 13px;
+}
+
+.search-input:focus,
+.filter-select:focus {
+  border-color: #5366e8;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 25px;
+  border-top: 1px solid #eff1f6;
+  flex-wrap: wrap;
+}
+
+.pagination-info {
+  color: #8996aa;
+  font-size: 12px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #69788f;
+}
+
+.pagination-controls select {
+  border: 1px solid #dfe4ee;
+  border-radius: 7px;
+  padding: 7px;
+  background: white;
+}
+
+.page-btn {
+  border: 1px solid #dfe4ee;
+  background: white;
+  color: #5366e8;
+  border-radius: 7px;
+  padding: 8px 11px;
+}
+
+.page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.page-number {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .student-toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search-input {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .student-toolbar {
+    grid-template-columns: 1fr;
+    padding: 0 16px 18px;
+  }
+
+  .search-input {
+    grid-column: auto;
+  }
+
+  .pagination {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .pagination-controls {
+    flex-wrap: wrap;
+  }
+}
+
