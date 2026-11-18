@@ -1,25 +1,18 @@
-
 import { useState } from "react";
 import StudentForm from "./components/StudentForm";
 import StudentTable from "./components/StudentTable";
 import EditStudentModal from "./components/EditStudentModal";
 
-import {
-  generateId,
-  loadStudents,
-  saveStudents,
-} from "./lib/storage";
+import { generateId, loadStudents, saveStudents } from "./lib/storage";
 
 import type { Attendance, Student, StudentInput } from "./types";
 import "./styles.css";
 
 export default function App() {
-  const [students, setStudents] =
-    useState<Student[]>(loadStudents);
+  const [students, setStudents] = useState<Student[]>(loadStudents);
 
   const [showForm, setShowForm] = useState(false);
-  const [editingStudent, setEditingStudent] =
-    useState<Student | null>(null);
+  const [editingStudent, setEditingStudent] = useState<Student | null>(null);
 
   const [message, setMessage] = useState("");
 
@@ -45,9 +38,7 @@ export default function App() {
     if (!editingStudent) return;
 
     const updated = students.map((student) =>
-      student.id === editingStudent.id
-        ? { ...student, ...input }
-        : student
+      student.id === editingStudent.id ? { ...student, ...input } : student,
     );
 
     updateStudents(updated);
@@ -61,71 +52,61 @@ export default function App() {
     if (!target) return;
 
     const confirmed = window.confirm(
-      `Are you sure you want to delete ${target.name}?`
+      `Are you sure you want to delete ${target.name}?`,
     );
 
     if (!confirmed) return;
 
-    updateStudents(
-      students.filter((s) => s.id !== id)
-    );
+    updateStudents(students.filter((s) => s.id !== id));
 
     setMessage("Student deleted successfully!");
   }
- 
+
   function updateAttendance(id: string, attendance: Attendance) {
     const updated = students.map((student) =>
-      student.id === id
-        ? { ...student, attendance }
-        : student
+      student.id === id ? { ...student, attendance } : student,
     );
 
     updateStudents(updated);
     setMessage("Attendance updated successfully!");
   }
- 
+
   const totalStudents = students.length;
 
-  const totalCourses = new Set(
-    students.map((s) => s.course.toLowerCase())
-  ).size;
+  const totalCourses = new Set(students.map((s) => s.course.toLowerCase()))
+    .size;
 
-  const finalYear = students.filter(
-    (s) => s.year === 4
-  ).length;
+  const finalYear = students.filter((s) => s.year === 4).length;
 
   const presentCount = students.filter(
-  (s) => s.attendance === "Present"
-).length;
+    (s) => s.attendance === "Present",
+  ).length;
 
-const absentCount = students.filter(
-  (s) => s.attendance === "Absent"
-).length;
+  const absentCount = students.filter((s) => s.attendance === "Absent").length;
 
-const notMarkedCount = students.filter(
-  (s) => s.attendance === "Not marked"
-).length;
+  const notMarkedCount = students.filter(
+    (s) => s.attendance === "Not marked",
+  ).length;
 
-const markedCount = presentCount + absentCount;
+  const markedCount = presentCount + absentCount;
 
-const attendanceRate = markedCount === 0
-  ? 0
-  : Math.round((presentCount / markedCount) * 100);
-const courseDistribution = Object.entries(
+  const attendanceRate =
+    markedCount === 0 ? 0 : Math.round((presentCount / markedCount) * 100);
+  const courseDistribution = Object.entries(
     students.reduce<Record<string, number>>((acc, student) => {
       acc[student.course] = (acc[student.course] || 0) + 1;
       return acc;
-    }, {})
+    }, {}),
   ).sort((a, b) => b[1] - a[1]);
 
-const yearDistribution = [1, 2, 3, 4].map((year) => ({
+  const yearDistribution = [1, 2, 3, 4].map((year) => ({
     year,
     count: students.filter((student) => student.year === year).length,
   }));
 
   const maxCourseCount = Math.max(
     1,
-    ...courseDistribution.map(([, count]) => count)
+    ...courseDistribution.map(([, count]) => count),
   );
   return (
     <div className="app-layout">
@@ -134,14 +115,10 @@ const yearDistribution = [1, 2, 3, 4].map((year) => ({
         <p className="sidebar-caption">ACADEMIC PORTAL</p>
 
         <nav>
-          <div className="nav-link active">
-            Students
-          </div>
+          <div className="nav-link active">Students</div>
         </nav>
 
-        <div className="sidebar-footer">
-          Advanced Tools & Applications
-        </div>
+        <div className="sidebar-footer">Advanced Tools & Applications</div>
       </aside>
 
       <main className="main">
@@ -153,9 +130,7 @@ const yearDistribution = [1, 2, 3, 4].map((year) => ({
         <div className="content">
           <div className="page-title">
             <div>
-              <p className="eyebrow">
-                STUDENT ADMINISTRATION
-              </p>
+              <p className="eyebrow">STUDENT ADMINISTRATION</p>
 
               <h1>Student Management</h1>
 
@@ -164,10 +139,7 @@ const yearDistribution = [1, 2, 3, 4].map((year) => ({
               </p>
             </div>
 
-            <button
-              className="btn-primary"
-              onClick={() => setShowForm(true)}
-            >
+            <button className="btn-primary" onClick={() => setShowForm(true)}>
               + Add Student
             </button>
           </div>
@@ -186,44 +158,36 @@ const yearDistribution = [1, 2, 3, 4].map((year) => ({
           )}
 
           <div className="stats-grid">
-
             <div className="stat-card">
-              <span>👥</span>
               <p>Total Students</p>
               <h2>{totalStudents}</h2>
             </div>
 
             <div className="stat-card">
-              <span>📚</span>
               <p>Total Courses</p>
               <h2>{totalCourses}</h2>
             </div>
 
             <div className="stat-card">
-              <span>🎓</span>
               <p>Final Year Students</p>
               <h2>{finalYear}</h2>
             </div>
             <div className="stat-card">
-              <span>✓</span>
               <p>Present</p>
               <h2>{presentCount}</h2>
             </div>
 
             <div className="stat-card">
-              <span>✕</span>
               <p>Absent</p>
               <h2>{absentCount}</h2>
             </div>
 
             <div className="stat-card">
-              <span>○</span>
               <p>Not Marked</p>
               <h2>{notMarkedCount}</h2>
             </div>
 
             <div className="stat-card">
-              <span>%</span>
               <p>Attendance Rate</p>
               <h2>{attendanceRate}%</h2>
             </div>
@@ -235,7 +199,6 @@ const yearDistribution = [1, 2, 3, 4].map((year) => ({
                   <h2>Course Distribution</h2>
                   <p>Students enrolled in each course</p>
                 </div>
-                <span>📚</span>
               </div>
 
               {courseDistribution.length === 0 ? (
@@ -268,7 +231,6 @@ const yearDistribution = [1, 2, 3, 4].map((year) => ({
                   <h2>Year-wise Distribution</h2>
                   <p>Students grouped by academic year</p>
                 </div>
-                <span>🎓</span>
               </div>
 
               <div className="analytics-list">

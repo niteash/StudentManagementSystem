@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/lib/storage.ts"],"version":"5.6.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/components/editstudentmodal.tsx","./src/components/studentform.tsx","./src/components/studenttable.tsx","./src/lib/storage.ts","./src/types/student.ts"],"version":"5.6.3"}

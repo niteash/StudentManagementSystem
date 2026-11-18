@@ -1,0 +1,722 @@
+[
+  {
+    "id": "STU-2001",
+    "name": "Aashwi Kumari",
+    "email": "mca1-001@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2002",
+    "name": "Abhishek",
+    "email": "mca1-002@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2003",
+    "name": "Abhishek Emmanual",
+    "email": "mca1-003@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2004",
+    "name": "Abhishek kumar Singh",
+    "email": "mca1-004@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2005",
+    "name": "Aaditya Kumar Pandey",
+    "email": "mca1-005@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2006",
+    "name": "Aditya Raghuvanshi",
+    "email": "mca1-006@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2007",
+    "name": "Ajay Kumar Meena",
+    "email": "mca1-007@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2008",
+    "name": "Akash Yadav",
+    "email": "mca1-008@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2009",
+    "name": "Amit kumar Meena",
+    "email": "mca1-009@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2010",
+    "name": "Anand Jaiswal",
+    "email": "mca1-010@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2011",
+    "name": "Anica Gupta",
+    "email": "mca1-011@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2012",
+    "name": "Ansh Chaturvedi",
+    "email": "mca1-012@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2013",
+    "name": "Anshika Ganjoo",
+    "email": "mca1-013@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2014",
+    "name": "Anuradha Singh",
+    "email": "mca1-014@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2015",
+    "name": "Anurag Singh",
+    "email": "mca1-015@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2016",
+    "name": "Arpita Chauhan",
+    "email": "mca1-016@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2017",
+    "name": "Ayser Islam",
+    "email": "mca1-017@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2018",
+    "name": "Ayush",
+    "email": "mca1-018@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2019",
+    "name": "Ayush Kapoor",
+    "email": "mca1-019@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2020",
+    "name": "Ayush Kumar",
+    "email": "mca1-020@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2021",
+    "name": "Ayush Mann",
+    "email": "mca1-021@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2022",
+    "name": "Bhabya Kumar Lal",
+    "email": "mca1-022@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2023",
+    "name": "Devansh Dwivedi",
+    "email": "mca1-023@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2024",
+    "name": "Dhruv",
+    "email": "mca1-024@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2025",
+    "name": "Dhruv Mehta",
+    "email": "mca1-025@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2026",
+    "name": "Dhruv Nailwal",
+    "email": "mca1-026@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2027",
+    "name": "Divya Shakti",
+    "email": "mca1-027@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2028",
+    "name": "Ganesh Kumar",
+    "email": "mca1-028@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2029",
+    "name": "Gaurav Gautam",
+    "email": "mca1-029@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2030",
+    "name": "Harsh Shakywar",
+    "email": "mca1-030@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2031",
+    "name": "Himanshu Kaushal",
+    "email": "mca1-031@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2032",
+    "name": "Jahnavi",
+    "email": "mca1-032@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2033",
+    "name": "Jatin Kumar",
+    "email": "mca1-033@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2034",
+    "name": "Kirti Rathi",
+    "email": "mca1-034@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2035",
+    "name": "Lairenmayum Raja Meitei",
+    "email": "mca1-035@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2036",
+    "name": "Malaya Gupta",
+    "email": "mca1-036@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2037",
+    "name": "Manan Sharma",
+    "email": "mca1-037@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2038",
+    "name": "Mayank Tiwari",
+    "email": "mca1-038@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2039",
+    "name": "Md Mosaddikur Rahaman",
+    "email": "mca1-039@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2040",
+    "name": "Nandani Gupta",
+    "email": "mca1-040@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2041",
+    "name": "Nishant Sagar",
+    "email": "mca1-041@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2042",
+    "name": "Parvinder",
+    "email": "mca1-042@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2043",
+    "name": "Prince Verma",
+    "email": "mca1-043@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2044",
+    "name": "Priyanshu Bisht",
+    "email": "mca1-044@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2045",
+    "name": "Pulkit Bhagat",
+    "email": "mca1-045@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2046",
+    "name": "Rahul Dubey",
+    "email": "mca1-046@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2047",
+    "name": "Ram Singh",
+    "email": "mca1-047@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2048",
+    "name": "Ravindra Kilaniya",
+    "email": "mca1-048@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2049",
+    "name": "Rishabh Gupta",
+    "email": "mca1-049@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2050",
+    "name": "Rudra Kumar Gupta",
+    "email": "mca1-050@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2051",
+    "name": "Sahil Sharma",
+    "email": "mca1-051@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2052",
+    "name": "Sanchit Middha",
+    "email": "mca1-052@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2053",
+    "name": "Sanil Kumar",
+    "email": "mca1-053@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2054",
+    "name": "Sikha Thakur",
+    "email": "mca1-054@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2055",
+    "name": "Shivam Chaudhary",
+    "email": "mca1-055@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2056",
+    "name": "Shresth Gupta",
+    "email": "mca1-056@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2057",
+    "name": "Sk Wakib Raja",
+    "email": "mca1-057@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2058",
+    "name": "Soumya Shubham",
+    "email": "mca1-058@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2059",
+    "name": "Swati",
+    "email": "mca1-059@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2060",
+    "name": "Tanishqa Chahal",
+    "email": "mca1-060@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2061",
+    "name": "Tejaswi Rawal",
+    "email": "mca1-061@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2062",
+    "name": "Vanshika Goyal",
+    "email": "mca1-062@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2063",
+    "name": "Vanshika Sharma",
+    "email": "mca1-063@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2064",
+    "name": "Vishal",
+    "email": "mca1-064@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2065",
+    "name": "Vivek Shukla",
+    "email": "mca1-065@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2066",
+    "name": "Vorundeep Singh",
+    "email": "mca1-066@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2067",
+    "name": "Waquas Ahmad",
+    "email": "mca1-067@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2068",
+    "name": "Yash Joshi",
+    "email": "mca1-068@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2069",
+    "name": "Zaki Zaheer",
+    "email": "mca1-069@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2070",
+    "name": "Anil",
+    "email": "mca1-070@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2071",
+    "name": "Ankit Bisht",
+    "email": "mca1-071@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2072",
+    "name": "Jatin Yadav",
+    "email": "mca1-072@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2073",
+    "name": "Shikha Thakur(FS)",
+    "email": "mca1-073@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2074",
+    "name": "Shwe Win Aung(FS)",
+    "email": "mca1-074@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2075",
+    "name": "Sk Wakib Raja",
+    "email": "mca1-075@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2076",
+    "name": "Tenzin Yangdon",
+    "email": "mca1-076@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2077",
+    "name": "Tisha Garg",
+    "email": "mca1-077@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2078",
+    "name": "Tushar",
+    "email": "mca1-078@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2079",
+    "name": "udit nagar",
+    "email": "mca1-079@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  },
+  {
+    "id": "STU-2080",
+    "name": "Vedansh",
+    "email": "mca1-080@example.com",
+    "course": "MCA",
+    "year": 1,
+    "attendance": "Not marked",
+    "createdAt": ""
+  }
+]
